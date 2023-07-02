@@ -1,7 +1,7 @@
 local M = {}
 
 local function map(mode, l, r, opts)
-  opts = opts or { noremap = true, silent = true, buffer = 0 }
+  opts = opts or { noremap = true, silent = true }
   vim.keymap.set(mode, l, r, opts)
 end
 
@@ -36,8 +36,7 @@ M.setup = {
 
     -- turn off highlighted search results (in all modes)
     map("", "<Esc>", ":nohl<CR>")
-    -- toggle file (e)xplorer; override opts so that this is mapped in all buffers.
-    map("n", "<Leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true})
+    map("n", "<Leader>e", ":NvimTreeToggle<CR>")
     -- quit
     map("n", "<a-q>", ":quit<CR>")
 
