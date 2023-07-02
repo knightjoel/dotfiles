@@ -1,0 +1,15 @@
+[user]
+	email = knight.joel@gmail.com
+	name = Joel Knight
+[core]
+	editor = nvim
+	pager = less -F -X
+[alias]
+	ci = commit
+	# https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs
+	lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(auto)%h%d%Creset by %C(auto)%cn%Creset on %cD%n    %s%n'
+	ss = status -s
+[pager]
+	branch = false
+[init]
+	defaultBranch = main
