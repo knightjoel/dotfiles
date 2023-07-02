@@ -45,11 +45,6 @@ M.setup = {
     map("v", "<", "<gv")
     map("v", ">", ">gv")
 
-    -- split navigation
-    map("n", "<C-J>", "<C-W><C-J>")
-    map("n", "<C-K>", "<C-W><C-K>")
-    map("n", "<C-L>", "<C-W><C-L>")
-    map("n", "<C-H>", "<C-W><C-H>")
     -- split creation
     map("n", "<C-w>|", ":vsp<CR>")  -- vertical
     map("n", "<C-w>%", ":sp<CR>")   -- horizontal
