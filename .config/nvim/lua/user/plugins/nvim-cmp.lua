@@ -20,17 +20,18 @@ end
 require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Only load the CloudFormation snippets if the filetype is appropriate.
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "FileType"}, {
-  callback = function()
-    if vim.o.filetype == "yaml.cloudformation" then
-      require("luasnip.loaders.from_vscode").lazy_load({
-        paths = {
-          "~/.local/share/nvim/vscode-cloudformation-snippets"
-        }
-      })
+local cfn_snippets_dir = "~/.local/share/nvim/vscode-cloudformation-snippets"
+if vim.fn.isdirectory(cfn_snippets_dir) then
+  vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "FileType"}, {
+    callback = function()
+      if vim.o.filetype == "yaml.cloudformation" then
+        require("luasnip.loaders.from_vscode").lazy_load({
+          paths = { cfn_snippets_dir }
+        })
+      end
     end
-  end
-})
+  })
+end
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
