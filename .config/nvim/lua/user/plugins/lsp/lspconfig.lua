@@ -28,7 +28,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- Configure the servers loaded by Mason.
+-- Configure servers (alphabetical order).
 lspconfig.ansiblels.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -38,6 +38,12 @@ lspconfig.ansiblels.setup({
 lspconfig.pyright.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+})
+
+lspconfig.terraformls.setup({
+  settings = {
+    cmd = { 'terraform-ls', 'serve' }
+  }
 })
 
 lspconfig.yamlls.setup({
