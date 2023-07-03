@@ -26,7 +26,7 @@ M.config = {
 M.setup = {
   standard = function()
     -- reduce keystrokes :)
-    map("n", ";", ":")
+    map("n", ";", ":", { noremap = true })
 
     -- don't skip over wrapped lines when moving up/down
     map("n", "j", "gj")
