@@ -62,23 +62,23 @@ M.setup = {
   end, -- standard
 
   barbar = function()
-    -- Move to previous/next
-    map("n", "<Leader>j", "<Cmd>BufferPrevious<CR>")
-    map("n", "<Leader>k", "<Cmd>BufferNext<CR>")
+    -- Move to vpreious/next
+    map("n", "<Leader>,", "<Cmd>BufferPrevious<CR>")
+    map("n", "<Leader>.", "<Cmd>BufferNext<CR>")
     -- Re-order to previous/next
-    map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>")
-    map("n", "<A->>", "<Cmd>BufferMoveNext<CR>")
+    map("n", "<Leader>[", "<Cmd>BufferMovePrevious<CR>")
+    map("n", "<Leader>]", "<Cmd>BufferMoveNext<CR>")
     -- Goto buffer in position...
-    map("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>")
-    map("n", "<Leader>2", "<Cmd>BufferGoto 2<CR>")
-    map("n", "<Leader>3", "<Cmd>BufferGoto 3<CR>")
-    map("n", "<Leader>4", "<Cmd>BufferGoto 4<CR>")
-    map("n", "<Leader>5", "<Cmd>BufferGoto 5<CR>")
-    map("n", "<Leader>6", "<Cmd>BufferGoto 6<CR>")
-    map("n", "<Leader>7", "<Cmd>BufferGoto 7<CR>")
-    map("n", "<Leader>8", "<Cmd>BufferGoto 8<CR>")
-    map("n", "<Leader>9", "<Cmd>BufferGoto 9<CR>")
-    map("n", "<Leader>0", "<Cmd>BufferLast<CR>")
+    map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>")
+    map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>")
+    map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>")
+    map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>")
+    map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>")
+    map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>")
+    map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>")
+    map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>")
+    map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>")
+    map("n", "<A-0>", "<Cmd>BufferLast<CR>")
     -- Magic buffer-picking mode
     map("n", "<C-p>", "<Cmd>BufferPick<CR>")
     -- close buffer
@@ -135,6 +135,24 @@ M.setup = {
     map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
     map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
   end, -- lsp_config
+
+  luasnip = function()
+    local luasnip = package.loaded.luasnip
+
+    -- expand the current item or jump to the next item within the snippet.
+    map({ "i", "s" }, "<A-j>", function()
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      end
+    end, { noremap = true, silent = false })
+
+    -- move to the previous item within the snippet
+    map({ "i", "s" }, "<A-k>", function()
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      end
+    end)
+  end, -- luasnip
 
   nvim_tree = function(bufnr)
     local status, api = pcall(require, "nvim-tree.api")

@@ -39,20 +39,7 @@ luasnip.config.set_config({
   updateevents = "TextChanged,TextChangedI", -- Update dynamic snippets while typing
   history = true -- Allows jumping back into the snippet after leaving it
 })
-
--- <a-n> will expand the current item or jump to the next item within the snippet.
-vim.keymap.set({ "i", "s" }, "<a-n>", function()
-  if luasnip.expand_or_jumpable() then
-    luasnip.expand_or_jump()
-  end
-end, { silent = false })
-
--- <a-p> moves to the previous item within the snippet
-vim.keymap.set({ "i", "s" }, "<a-p>", function()
-  if luasnip.jumpable(-1) then
-    luasnip.jump(-1)
-  end
-end, { silent = true })
+require("user.core.keymaps").setup.luasnip()
 
 cmp.setup({
   snippet = {
