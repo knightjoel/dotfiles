@@ -83,6 +83,7 @@ return packer.startup(function(use)
   use("hashivim/vim-terraform")
 
   -- LSP
+  use("jose-elias-alvarez/null-ls.nvim")
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
   use("neovim/nvim-lspconfig") -- easily configure language servers
@@ -93,7 +94,7 @@ return packer.startup(function(use)
       { "nvim-tree/nvim-web-devicons" },
       { "nvim-treesitter/nvim-treesitter" },
     },
-  }) -- enhanced lsp uis
+  }) -- enhanced LSP UIs
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
   if packer_bootstrap then
