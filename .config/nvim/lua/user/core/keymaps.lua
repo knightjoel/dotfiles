@@ -123,14 +123,12 @@ M.setup = {
   lsp_config = function(bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
 
-    map("n", "gf", "<Cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-    map("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- go to declaration
-    map("n", "gd", "<Cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-    map("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-    map("n", "<Leader>ca", "<Cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-    map("n", "<Leader>rn", "<Cmd>Lspsaga rename<CR>", opts) -- smart rename
-    map("n", "<Leader>D", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show diagnostics for line
-    map("n", "<Leader>d", "<Cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
+    map("n", "<Leader>ld", "<Cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+    map("n", "<Leader>lgd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- go to declaration
+    map("n", "<Leader>lf", "<Cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
+    map("n", "<Leader>lca", "<Cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+    map("n", "<Leader>lrn", "<Cmd>Lspsaga rename<CR>", opts) -- smart rename
+    map("n", "<Leader>ldia", "<Cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
     map("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
     map("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
     map("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
@@ -174,7 +172,6 @@ M.setup = {
     local status, ts_builtin = pcall(require, "telescope.builtin")
     if status then
       map('n', '<Leader>fb', ts_builtin.buffers)
-      map('n', '<Leader>fd', ts_builtin.lsp_definitions)
       map('n', '<Leader>ff', ts_builtin.find_files)
       map('n', '<Leader>fr', ts_builtin.lsp_references)
       map('n', '<Leader>ft', ts_builtin.treesitter)
