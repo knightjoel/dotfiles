@@ -41,6 +41,8 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.terraformls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
   settings = {
     cmd = { 'terraform-ls', 'serve' }
   }
