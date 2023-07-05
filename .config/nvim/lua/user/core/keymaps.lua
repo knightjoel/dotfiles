@@ -57,8 +57,8 @@ M.setup = {
     map("n", "x", '"_x')
 
     -- increment/decrement numbers
-    map("n", "<leader>+", "<C-a>") -- increment
-    map("n", "<leader>-", "<C-x>") -- decrement
+    map("n", "<Leader>+", "<C-a>") -- increment
+    map("n", "<Leader>-", "<C-x>") -- decrement
   end, -- standard
 
   barbar = function()
@@ -102,18 +102,18 @@ M.setup = {
     end, {expr=true})
 
     -- Actions
-    map('n', '<leader>gs', gs.stage_hunk)
-    map('n', '<leader>gr', gs.reset_hunk)
-    map('v', '<leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-    map('v', '<leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-    map('n', '<leader>gS', gs.stage_buffer)
-    map('n', '<leader>gu', gs.undo_stage_hunk)
-    map('n', '<leader>gp', gs.preview_hunk)
-    map('n', '<leader>gb', function() gs.blame_line{full=true} end)
-    map('n', '<leader>gd', gs.diffthis)
+    map('n', '<Leader>gs', gs.stage_hunk)
+    map('n', '<Leader>gr', gs.reset_hunk)
+    map('v', '<Leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('v', '<Leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('n', '<Leader>gS', gs.stage_buffer)
+    map('n', '<Leader>gu', gs.undo_stage_hunk)
+    map('n', '<Leader>gp', gs.preview_hunk)
+    map('n', '<Leader>gb', function() gs.blame_line{full=true} end)
+    map('n', '<Leader>gd', gs.diffthis)
 
-    map('n', '<leader>gtb', gs.toggle_current_line_blame)
-    map('n', '<leader>gtd', gs.toggle_deleted)
+    map('n', '<Leader>gtb', gs.toggle_current_line_blame)
+    map('n', '<Leader>gtd', gs.toggle_deleted)
 
     -- Text object
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
@@ -123,17 +123,17 @@ M.setup = {
   lsp_config = function(bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
 
-    map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-    map("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-    map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-    map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-    map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-    map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-    map("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show diagnostics for line
-    map("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-    map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-    map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-    map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+    map("n", "gf", "<Cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
+    map("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- go to declaration
+    map("n", "gd", "<Cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+    map("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
+    map("n", "<Leader>ca", "<Cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+    map("n", "<Leader>rn", "<Cmd>Lspsaga rename<CR>", opts) -- smart rename
+    map("n", "<Leader>D", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show diagnostics for line
+    map("n", "<Leader>d", "<Cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
+    map("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
+    map("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
+    map("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
   end, -- lsp_config
 
   luasnip = function()
@@ -173,11 +173,11 @@ M.setup = {
   telescope = function()
     local status, ts_builtin = pcall(require, "telescope.builtin")
     if status then
-      map('n', '<leader>fb', ts_builtin.buffers)
-      map('n', '<leader>fd', ts_builtin.lsp_definitions)
-      map('n', '<leader>ff', ts_builtin.find_files)
-      map('n', '<leader>fr', ts_builtin.lsp_references)
-      map('n', '<leader>ft', ts_builtin.treesitter)
+      map('n', '<Leader>fb', ts_builtin.buffers)
+      map('n', '<Leader>fd', ts_builtin.lsp_definitions)
+      map('n', '<Leader>ff', ts_builtin.find_files)
+      map('n', '<Leader>fr', ts_builtin.lsp_references)
+      map('n', '<Leader>ft', ts_builtin.treesitter)
     end
   end, -- telescope
 }
