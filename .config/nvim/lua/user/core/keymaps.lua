@@ -163,6 +163,7 @@ M.setup = {
       map('n', '<Leader>ff', ts_builtin.find_files)
       map('n', '<Leader>fr', ts_builtin.lsp_references)
       map('n', '<Leader>ft', ts_builtin.treesitter)
+      map('n', '<Leader>gitss', ts_builtin.git_status) -- like my 'git ss' alias
     end
   end, -- telescope
 }
