@@ -7,6 +7,7 @@ end
 -- enable comment
 comment.setup({
   toggler = {
-    line = "glc"  -- "Go line comment"
+    line = "gcl",  -- "Go comment line"
+    block = "gcb", -- "Go comment block"
   }
 })
