@@ -10,6 +10,7 @@ end
 
 telescope.setup({
   defaults = {
+    layout_strategy = "vertical",
     mappings = {
       i = {
         -- c-j moves down in the picker
