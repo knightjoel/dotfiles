@@ -102,22 +102,10 @@ M.setup = {
     end, {expr=true})
 
     -- Actions
-    map('n', '<Leader>gs', gs.stage_hunk)
-    map('n', '<Leader>gr', gs.reset_hunk)
-    map('v', '<Leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-    map('v', '<Leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-    map('n', '<Leader>gS', gs.stage_buffer)
-    map('n', '<Leader>gu', gs.undo_stage_hunk)
-    map('n', '<Leader>gp', gs.preview_hunk)
     map('n', '<Leader>gb', function() gs.blame_line{full=true} end)
-    map('n', '<Leader>gd', gs.diffthis)
 
     map('n', '<Leader>gtb', gs.toggle_current_line_blame)
     map('n', '<Leader>gtd', gs.toggle_deleted)
-
-    -- Text object
-    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-
   end, -- gitsigns
 
   lsp_config = function(bufnr)
