@@ -42,6 +42,7 @@ return packer.startup(function(use)
     "lewis6991/gitsigns.nvim",
     tag = "v0.6"
   })
+  use({"thirtythreeforty/lessspace.vim"})
   use {
     "nvim-lualine/lualine.nvim", -- status line
     requires = { "nvim-tree/nvim-web-devicons", opt = true }
