@@ -7,10 +7,10 @@ This is my Neovim configuration.
 ```shell
 cd $HOME
 mkdir git && cd git
-git clone --bare https://github.com/knightjoel/dotfiles.git
-alias dotfiles='git --git-dir=$HOME/git/dotfiles/ --work-tree=$HOME'
-dotfiles config --local status.showUntrackedFiles no
+git clone --bare https://github.com/knightjoel/dotfiles.git dotfiles
+alias dotfiles="git --git-dir=$HOME/git/dotfiles/ --work-tree=$HOME"
 cd $HOME
+dotfiles config --local status.showUntrackedFiles no
 dotfiles checkout
 ```
 
@@ -37,7 +37,7 @@ _Mason.nvim doesn't support auto-installing these on OpenBSD or FreeBSD (yet)._
 - Install `tflint` using ports or manually building.
 - Install `tfsec` using ports or manually building.
 
-# Configuration tructure
+# Configuration structure
 
 - `init.lua` - Neovim starts here; I use this file to pull in all the other files
 - `lua/user/` - Top directory for lua files
