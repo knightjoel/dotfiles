@@ -18,7 +18,13 @@ When you run nvim for the first time, it will complain about missing colorscheme
 plugins, etc. The package manager should run and install everything. Restart nvim
 to properly load everything.
 
-## Dependencies (optional)
+## Hard Dependencies
+
+- cfn-lint
+- git
+- Node.js
+
+## Optional Dependencies
 
 CloudFormation snippets:
 
