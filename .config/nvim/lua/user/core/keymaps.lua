@@ -34,8 +34,9 @@ M.setup = {
     map("n", "k", "gk")
     map("n", "<up>", "gk")
 
-    -- turn off highlighted search results (in all modes)
-    map("", "<Esc>", ":nohl<CR>")
+    -- turn off highlighted search results (from normal mode)
+    map("n", "<Esc>", ":nohl<CR>")
+
     map("n", "<Leader>e", ":NvimTreeToggle<CR>")
 
     -- Better indentation/deindentation of code blocks
