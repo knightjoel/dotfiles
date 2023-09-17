@@ -105,6 +105,10 @@ M.setup = {
     -- Actions
     map('n', '<Leader>gb', function() gs.blame_line{full=true} end)
 
+    map('n', '<Leader>gs', gs.stage_buffer)
+    map('v', '<Leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('v', '<Leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+
     map('n', '<Leader>gtb', gs.toggle_current_line_blame)
     map('n', '<Leader>gtd', gs.toggle_deleted)
   end, -- gitsigns
