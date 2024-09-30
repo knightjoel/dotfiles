@@ -13,3 +13,5 @@
 	branch = false
 [init]
 	defaultBranch = main
+[includeIf "gitdir:~/git/awslabs/"]
+	path = ~/git/awslabs/.gitconfig
