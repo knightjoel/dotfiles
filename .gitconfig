@@ -6,8 +6,11 @@
 	pager = less -F -X
 [alias]
 	ci = commit
-	# https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs
-	lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(auto)%h%d%Creset by %C(auto)%cn%Creset on %cD%n    %s%n'
+	# (c)ommits.
+	c = "log --graph --pretty=format:'%C(always,yellow)%h%C(always,reset) %C(always,green)%ah%C(always,reset) %C(always,bold blue)%an%C(always,reset) %C(always,red)%d%C(always,reset) %s'"
+	# 'lg' is in my muscle memory
+	lg = c
+	lg2 = "log --graph --pretty=format:'%C(always,yellow)%h%C(always,reset) %C(always,green)%ah%C(always,reset) %C(always,bold blue)%an%C(always,reset) %C(always,red)%d%C(always,reset)%n   %s'"
 	ss = status -s
 [pager]
 	branch = false
