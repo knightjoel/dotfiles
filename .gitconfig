@@ -18,3 +18,24 @@
 	defaultBranch = main
 [includeIf "gitdir:~/git/awslabs/"]
 	path = ~/git/awslabs/.gitconfig
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[push]
+	default = simple
+	autoSetupRemote = true
+[fetch]
+	prune = true
+	pruneTags = true
+[commit]
+	verbose = true
+[merge]
+	conflictstyle = zdiff3
+[pull]
+	rebase = true
