@@ -84,7 +84,7 @@ return packer.startup(function(use)
   use("hashivim/vim-terraform")
 
   -- LSP
-  use("jose-elias-alvarez/null-ls.nvim")
+  use("nvimtools/none-ls.nvim")
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
   use("neovim/nvim-lspconfig") -- easily configure language servers
