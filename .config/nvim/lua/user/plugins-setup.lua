@@ -38,10 +38,7 @@ return packer.startup(function(use)
   -- features
   use("romgrk/barbar.nvim") -- buffer bar
   use("numToStr/Comment.nvim")
-  use({
-    "lewis6991/gitsigns.nvim",
-    tag = "v0.6"
-  })
+  use({"lewis6991/gitsigns.nvim"})
   use({"thirtythreeforty/lessspace.vim"})
   use {
     "nvim-lualine/lualine.nvim", -- status line
