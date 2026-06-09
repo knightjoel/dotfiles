@@ -1,9 +1,3 @@
--- import lspconfig plugin safely
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-  return
-end
-
 -- import cmp-nvim-lsp plugin safely
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status then
@@ -17,8 +11,6 @@ local on_attach = function(client, bufnr)
   require("user.core.keymaps").setup.lsp_config(bufnr)
 end
 
--- used to enable autocompletion (assign to every lsp server config)
-local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
@@ -28,16 +20,21 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- Configure servers (alphabetical order).
-lspconfig.ansiblels.setup({
-  capabilities = capabilities,
+-- Set default root markers for all clients
+vim.lsp.config("*", {
+  -- used to enable autocompletion (assign to every lsp server config)
+  capabilities = cmp_nvim_lsp.default_capabilities(),
+  root_markers = { ".git" },
   on_attach = on_attach,
-  filetypes = { "yaml.ansible" },
 })
 
-lspconfig.pyright.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+-- Configure servers (alphabetical order).
+vim.lsp.config("yaml.ansible", {
+  cmd = { "ansible-language-server", "--stdio" },
+})
+
+vim.lsp.config("pyright", {
+  cmd = { "pyright" }
 })
 
 lspconfig.terraformls.setup({
@@ -48,9 +45,8 @@ lspconfig.terraformls.setup({
   }
 })
 
-lspconfig.yamlls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config("yamlls", {
+  cmd = { "yaml-language-server", "--stdio" },
   filetypes = { "yaml.cloudformation" },
   settings = {
     yaml = {
