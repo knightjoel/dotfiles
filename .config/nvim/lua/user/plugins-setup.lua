@@ -82,11 +82,8 @@ return packer.startup(function(use)
 
   -- LSP
   use("nvimtools/none-ls.nvim")
-  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-  use({
-    "williamboman/mason-lspconfig.nvim",
-    tag = "v1.32.0",
-  }) -- bridges gap b/w mason & lspconfig
+  use("mason-org/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("mason-org/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use({
     "glepnir/lspsaga.nvim",
