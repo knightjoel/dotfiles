@@ -37,14 +37,6 @@ vim.lsp.config("pyright", {
   cmd = { "pyright" }
 })
 
-lspconfig.terraformls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    cmd = { 'terraform-ls', 'serve' }
-  }
-})
-
 vim.lsp.config("yamlls", {
   cmd = { "yaml-language-server", "--stdio" },
   filetypes = { "yaml.cloudformation" },
