@@ -82,9 +82,11 @@ return packer.startup(function(use)
 
   -- LSP
   use("nvimtools/none-ls.nvim")
+  -- Order matters here:
   use("mason-org/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-  use("mason-org/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
   use("neovim/nvim-lspconfig") -- easily configure language servers
+  use("mason-org/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+  -- /end Order matters
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
