@@ -29,16 +29,7 @@ vim.lsp.config("*", {
 })
 
 -- Configure servers (alphabetical order).
-vim.lsp.config("yaml.ansible", {
-  cmd = { "ansible-language-server", "--stdio" },
-})
-
-vim.lsp.config("pyright", {
-  cmd = { "pyright" }
-})
-
 vim.lsp.config("yamlls", {
-  cmd = { "yaml-language-server", "--stdio" },
   filetypes = { "yaml.cloudformation" },
   settings = {
     yaml = {
